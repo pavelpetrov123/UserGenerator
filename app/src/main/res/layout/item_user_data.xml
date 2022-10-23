@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dataLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dip"
+    android:layout_margin="4dip">
+
+    <TextView
+        android:id="@+id/nameText"
+        tools:text="User"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:lines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/idText"
+        tools:text="123"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:lines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/dateText"
+        style="@style/TextAppearance.AppCompat.Caption"
+        tools:text="06/10/20\n21-13-2021"
+        android:lines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Users generator</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="users_list_fragment_label">Users List</string>
+    <string name="user_details_fragment_label">User Details</string>
+
+    <string name="users_service_ready">Users service is ready</string>
+    <string name="users_service_running">Service running in foreground</string>
+
+    <string name="user_id_title">User Id:</string>
+    <string name="user_name_title">User Name:</string>
+    <string name="user_date_title">User Date:</string>
+
+</resources>
