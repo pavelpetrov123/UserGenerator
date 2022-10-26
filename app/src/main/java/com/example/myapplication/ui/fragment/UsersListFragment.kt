@@ -9,7 +9,6 @@ import com.example.myapplication.domain.model.User
 import com.example.myapplication.ui.adapter.UsersListRecyclerViewAdapter
 import com.example.myapplication.ui.extension.observe
 import com.example.myapplication.ui.tools.Constants.KEY_USER_EXTRA
-
 import com.example.myapplication.ui.viewmodel.UsersListFragmentModel
 import kotlinx.android.synthetic.main.fragment_users_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,6 +34,8 @@ class UsersListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(R.string.users_list_fragment_label)
+        initAdapter()
+        fillAdapter(userListFragmentModel.lastUsersList)
         userListFragmentModel.getUsers()
     }
 
@@ -42,13 +43,19 @@ class UsersListFragment : BaseFragment() {
         fillAdapter(users)
     }
 
-    private fun fillAdapter(list: List<User>?) {
-        initRecyclerView()
-        adapter = UsersListRecyclerViewAdapter(list)
-        adapter?.onSelectItemListener = { user ->
-            navigateToDetailsScreen(user)
+    private fun initAdapter() {
+        if (usersRecyclerView?.adapter == null) {
+            initRecyclerView()
+            adapter = UsersListRecyclerViewAdapter()
+            adapter?.onSelectItemListener = { user ->
+                navigateToDetailsScreen(user)
+            }
+            usersRecyclerView?.adapter = adapter
         }
-        usersRecyclerView?.adapter = adapter
+    }
+
+    private fun fillAdapter(list: List<User>?) {
+        adapter?.submitList(list)
     }
 
     private fun navigateToDetailsScreen(user: User?) {

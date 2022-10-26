@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.data.store.UserDbStore
 import com.example.myapplication.domain.model.User
 import com.example.myapplication.ui.tools.rx.AppScheduler
-import io.reactivex.Flowable
 import io.reactivex.rxkotlin.addTo
 import timber.log.Timber
 
@@ -14,14 +13,19 @@ class UsersListFragmentModel(
 
     val getUsersLiveData: MutableLiveData<List<User>> = MutableLiveData()
 
+    val lastUsersList: List<User>?
+        get() {
+            return getUsersLiveData.value
+        }
+
     fun getUsers() {
-    dbUsersStore.getUsers()
+        dbUsersStore.getUsers()
         .map { users -> sortData(users) }
         .subscribeOn(AppScheduler.io())
         .observeOn(AppScheduler.io())
         .subscribe(
-         {getUsersLiveData.postValue(it)},
-         {Timber.e(it)})
+            { getUsersLiveData.postValue(it) },
+            { Timber.e(it) })
         .addTo(compositeDisposable)
     }
 
