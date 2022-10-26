@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION", "OverrideDeprecatedMigration", "OverrideDeprecatedMigration")
-
 package com.example.myapplication.ui.service
 
 import android.app.NotificationManager
@@ -15,7 +13,6 @@ import com.example.myapplication.domain.manager.UpdateUsersManager
 
 import org.koin.android.ext.android.inject
 
-@Suppress("OverrideDeprecatedMigration", "OverrideDeprecatedMigration")
 class UsersService: Service() {
 
     private val usersManager: UpdateUsersManager by inject()
@@ -39,6 +36,7 @@ class UsersService: Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        usersManager.stop()
         stopForegroundService()
     }
 
