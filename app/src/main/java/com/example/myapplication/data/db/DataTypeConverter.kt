@@ -6,8 +6,6 @@ import java.util.*
 
 class DataTypeConverter {
 
-    private val gson = Gson()
-
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
         return value?.let { Date(it) }

@@ -17,11 +17,6 @@ abstract class BaseViewModel : ViewModel() {
             return App.appInstance
         }
 
-    private fun <T> cleanLiveData(liveData: MutableLiveData<T>, owner: LifecycleOwner) {
-        liveData.removeObservers(owner)
-        liveData.value = null
-    }
-
     override fun onCleared() {
         Timber.i("${this::class.java.simpleName}: onCleared")
         compositeDisposable.clear()
