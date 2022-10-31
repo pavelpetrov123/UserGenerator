@@ -2,13 +2,13 @@ package com.example.myapplication.ui
 
 import android.app.Application
 import com.example.myapplication.data.di.storeModule
+import com.example.myapplication.data.di.useCaseModule
 import com.example.myapplication.data.di.viewModelModule
 import timber.log.Timber
 
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
-
 
 class App: Application() {
 
@@ -31,7 +31,7 @@ class App: Application() {
         startKoin {
             androidContext(this@App)
             androidLogger()
-            modules(storeModule, viewModelModule)
+            modules(storeModule, useCaseModule, viewModelModule)
         }
     }
 }

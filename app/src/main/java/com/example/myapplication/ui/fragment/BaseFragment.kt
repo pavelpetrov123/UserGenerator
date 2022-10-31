@@ -14,9 +14,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
-import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_users_list.*
 import timber.log.Timber
 
 private var EMPTY_RES_ID = com.google.android.material.R.drawable.navigation_empty_icon
